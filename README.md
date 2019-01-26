@@ -4,7 +4,9 @@ KafkaStreams TopologyTestDriver bug test suite
 
 To simulate the bug, just run `mvn package` which will run the test and fail.
 
-Note that I send one message twice, and receive 3 messages as an output, and the second message (printed on the console) has an empty array, which is the result of the `subtractor` in the aggregate function.
+Note that I send one message twice, and receive 3 messages as an output, and the second message (printed on the console) has an empty array, which is the result of the `subtractor` in the aggregate function. 
+
+It's my understanding that a message should be sent after both aggregate and adder functions are called, but not between them.
 
 # Background:
 I have a topology that aggregates on a KTable. This is a generic method I created to build this topology on different topics I have.
